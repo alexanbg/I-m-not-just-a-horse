@@ -5,10 +5,23 @@ using UnityEngine;
 public class HorsePullToGround : MonoBehaviour
 {
     [SerializeField]
-    Vector3 vector3;
+    Vector2 vector2;
 
-    void Update()
+    [SerializeField]
+    string  sTag;
+
+    [SerializeField]
+    Rigidbody2D Horse;
+
+    void OnTriggerEnter2D(Collider2D collision){
+        //Debug.Log("enter");
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
     {
-        
+        //Debug.Log(collision.tag);
+        if(collision.tag == sTag){
+            Horse.velocity += vector2;
+        }
     }
 }
