@@ -9,15 +9,29 @@ public class ObstacleCourseSpawner : MonoBehaviour
     private int timer = 0;
     private GameObject lastObstacle;
 
+    [SerializeField]
+    private float speed = 1f;
+    [SerializeField]
+    private float scaler;
+    [SerializeField]
+    private float endYCoord;
+
     void Start(){
-        lastObstacle = Instantiate(ObstacleCources[Random.Range(0,ObstacleCources.Length-1)],transform.position,Quaternion.identity);
+        SpawnObstacle();
     }
 
 
     void Update(){
         if(Vector2.Distance(transform.position, lastObstacle.transform.position)>60){
-            lastObstacle = Instantiate(ObstacleCources[Random.Range(0,ObstacleCources.Length-1)],transform.position,Quaternion.identity);
+            SpawnObstacle();
         }
+    }
+
+    private void SpawnObstacle(){
+        lastObstacle = Instantiate(ObstacleCources[Random.Range(0,ObstacleCources.Length-1)],transform.position,Quaternion.identity);
+        lastObstacle.GetComponent<ObstacleCourse>().speed = speed;
+        lastObstacle.GetComponent<ObstacleCourse>().scaler = scaler;
+        lastObstacle.GetComponent<ObstacleCourse>().endYCoord = endYCoord;
     }
     
 }

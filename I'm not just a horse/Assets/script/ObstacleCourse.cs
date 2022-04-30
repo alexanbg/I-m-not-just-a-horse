@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class ObstacleCourse : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 1f;
-    [SerializeField]
-    private float scaler;
+    [HideInInspector]
+    public float speed = 1f;
+    [HideInInspector]
+    public float scaler;
+    [HideInInspector]
+    public float endYCoord;
     
     void Update()
     {
         transform.position-=new Vector3((speed+(Time.time*scaler))*Time.deltaTime,0f,0f);
+        if(transform.position.y<endYCoord){
+            Destroy(gameObject);
+        }
     }
 }
