@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 339637543}
   - component: {fileID: 339637546}
   - component: {fileID: 339637545}
-  - component: {fileID: 339637544}
+  - component: {fileID: 339637547}
   m_Layer: 0
   m_Name: GroundMagneticField (1)
   m_TagString: Untagged
@@ -269,18 +269,6 @@ Transform:
   m_Father: {fileID: 132898638}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &339637544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339637542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82409a05bc2e93f4bbb1d7c7a2bc0149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &339637545
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -359,6 +347,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &339637547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339637542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1715193cb44bd014d9b66b62d82716a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vector2: {x: 0, y: -0.4}
+  sTag: Magnet
+  Horse: {fileID: 1742194176}
 --- !u!1 &554788851
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +420,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleCources:
   - {fileID: 9109654460949851251, guid: c7a1a3f4cb22bfc46b2848c05af302d9, type: 3}
+  - {fileID: 449654392548659398, guid: d2d1c65336a16fb47a702bd5d966842a, type: 3}
+  - {fileID: 1294147096601343117, guid: c7cbd8fd5ab9f8e4fa2dfd93a2660cc4, type: 3}
+  - {fileID: 6012174034209403581, guid: a882a73e6d2bde445af8e762f9570538, type: 3}
+  - {fileID: 2444663763498550454, guid: 5187ebacd07e7de48808a45cbd4045e3, type: 3}
+  speed: 10
+  scaler: 0.1
+  endYCoord: -100
 --- !u!4 &554788854
 Transform:
   m_ObjectHideFlags: 0
@@ -443,7 +453,7 @@ GameObject:
   - component: {fileID: 600587657}
   - component: {fileID: 600587658}
   - component: {fileID: 600587660}
-  - component: {fileID: 600587659}
+  - component: {fileID: 600587661}
   m_Layer: 0
   m_Name: GroundMagneticField
   m_TagString: Untagged
@@ -518,18 +528,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &600587659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600587656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82409a05bc2e93f4bbb1d7c7a2bc0149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &600587660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -556,6 +554,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &600587661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600587656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1715193cb44bd014d9b66b62d82716a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vector2: {x: 0, y: 0.4}
+  sTag: Magnet
+  Horse: {fileID: 1742194176}
 --- !u!1 &869619330
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +889,7 @@ GameObject:
   - component: {fileID: 1742194173}
   - component: {fileID: 1742194176}
   - component: {fileID: 1742194177}
+  - component: {fileID: 1742194178}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -969,8 +983,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742194172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.95, y: 2.786, z: 0}
-  m_LocalScale: {x: -2.7928846, y: 1.272024, z: 1}
+  m_LocalPosition: {x: -7.5485, y: -2.8146, z: 0}
+  m_LocalScale: {x: -1.709804, y: 1.542838, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1712846676}
@@ -1007,6 +1021,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1742194172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3165796c28fb84cb0f8dd7adc378a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1851957d97dd3a244af3f3eaf1dc42ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myKey: 32
+  MaxCharge: 20
+--- !u!114 &1742194178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742194172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04427c6a06fffed4c81d3624b3ef37f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
