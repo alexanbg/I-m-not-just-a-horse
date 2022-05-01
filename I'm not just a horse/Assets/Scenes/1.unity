@@ -790,7 +790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712846675}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0030793375, y: -0.6116, z: 0}
+  m_LocalPosition: {x: 0.0030793375, y: -0.363, z: 0}
   m_LocalScale: {x: -1.0012218, y: -0.21934398, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 1742194176}
   - component: {fileID: 1742194177}
   - component: {fileID: 1742194178}
+  - component: {fileID: 1742194179}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -985,3 +986,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04427c6a06fffed4c81d3624b3ef37f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1742194179
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742194172}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac83900d39d80024da720204da1220d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
