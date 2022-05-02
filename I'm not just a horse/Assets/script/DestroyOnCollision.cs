@@ -8,6 +8,7 @@ public class DestroyOnCollision : MonoBehaviour
     {
         if(collision.collider.CompareTag("Obstacle")){
             Destroy(gameObject);
+            //PlayerManager.DeadRoutine();
         }
         
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,15 +10,20 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public Leaderboard leaderboard;
 
+    [SerializeField]
+    public GameObject Horse;
+
     int  highscore = 0;
     void Start()
     {
-        StartCoroutine(LoginRoutine());
+        StartCoroutine(SetupRoutine());
     }
-    // IEnumerator DeadRoutine(){
-    //     bool done = false;
-    //     yield return new WaitWhile(() => done == false);
-    // }
+    IEnumerator SetupRoutine()
+    {
+        yield return LoginRoutine();
+        yield return leaderboard.FetchTopHighscoresRoutine();
+    }
+
     IEnumerator LoginRoutine()
     {
         bool done = false;
@@ -39,9 +45,25 @@ public class PlayerManager : MonoBehaviour
     }
 
 
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        highscore++;
+        if(Horse == null){
+            Debug.Log("Horse Died");
+            StartCoroutine(DieRoutine());
+        }
     }
+    
+
+    IEnumerator DieRoutine()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
+        yield return leaderboard.SubmitScoreRoutine(highscore);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }
