@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public Leaderboard leaderboard;
     public TMP_InputField playerName;
+    public TextMeshProUGUI Score;
 
     [SerializeField]
     public GameObject Horse;
@@ -73,6 +74,7 @@ public class PlayerManager : MonoBehaviour
     void FixedUpdate()
     {
         highscore++;
+        Score.text = "Score: " + highscore;
         if(Horse == null){
             Debug.Log("Horse Died");
             StartCoroutine(DieRoutine());
