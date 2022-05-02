@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public GameObject Horse;
 
+    [SerializeField]
+    public GameObject Pannel;
+
     int  highscore = 0;
     void Start()
     {
         StartCoroutine(SetupRoutine());
+        Pannel.gameObject.SetActive(false);
     }
     IEnumerator SetupRoutine()
     {
@@ -60,6 +65,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator DieRoutine()
     {
         Time.timeScale = 0f;
+        Pannel.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         yield return leaderboard.SubmitScoreRoutine(highscore);
         Time.timeScale = 1f;
