@@ -22,7 +22,7 @@ public class Leaderboard : MonoBehaviour
         
     }
 
-    public IEnumerator SubmitScoreRoutine(int scoreToUpload)
+    public IEnumerator SubmitScoreRoutine(int scoreToUpload,string name)
     {
         bool done = false;
         string playerID = PlayerPrefs.GetString("PlayerID");

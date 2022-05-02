@@ -4,12 +4,14 @@ using UnityEngine;
 using LootLocker.Requests;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
     public Leaderboard leaderboard;
+    public TMP_InputField playerName;
 
     [SerializeField]
     public GameObject Horse;
@@ -22,6 +24,8 @@ public class PlayerManager : MonoBehaviour
     {
         StartCoroutine(SetupRoutine());
         Pannel.gameObject.SetActive(false);
+        playerName.text = FindObjectOfType<PassableObject>().playerName;
+        SetPlayerName();
     }
     IEnumerator SetupRoutine()
     {
@@ -49,6 +53,20 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitWhile(() => done == false);
     }
 
+    public void SetPlayerName()
+    {
+        LootLockerSDKManager.SetPlayerName(playerName.text, (response) =>
+        {
+            if(response.success)
+            {
+                Debug.Log("Succesfully set player name");
+            }
+            else
+            {
+                Debug.Log("Could not set player name"+response.Error);
+            }
+        });
+    }
 
 
     // Update is called once per frame
@@ -67,9 +85,12 @@ public class PlayerManager : MonoBehaviour
         Time.timeScale = 0f;
         Pannel.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
-        yield return leaderboard.SubmitScoreRoutine(highscore);
+    }
+    public void PlayAgain(){
+        StartCoroutine(leaderboard.SubmitScoreRoutine(highscore, playerName.text));
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindObjectOfType<PassableObject>().playerName = playerName.text;
+        SceneManager.LoadScene("1");
     }
 
 }
