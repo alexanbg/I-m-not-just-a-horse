@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 5
   scaler: 1
   endYCoord: -100
+  length: 50
 --- !u!1 &5817330127246297234
 GameObject:
   m_ObjectHideFlags: 0

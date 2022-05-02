@@ -22,7 +22,7 @@ public class ObstacleCourseSpawner : MonoBehaviour
 
 
     void Update(){
-        if(Vector2.Distance(transform.position, lastObstacle.transform.position)>60){
+        if(Vector2.Distance(transform.position, lastObstacle.transform.position)>lastObstacle.GetComponent<ObstacleCourse>().length+lastObstacle.GetComponent<ObstacleCourse>().speed*2){
             SpawnObstacle();
         }
     }

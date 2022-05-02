@@ -50,6 +50,7 @@ MonoBehaviour:
   speed: 5
   scaler: 1
   endYCoord: -100
+  length: 50
 --- !u!1001 &2499464721758020031
 PrefabInstance:
   m_ObjectHideFlags: 0
